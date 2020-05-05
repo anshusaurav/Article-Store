@@ -1,0 +1,24 @@
+<%- include('partials/header') -%>
+    <h1>Edit Article</h1>
+    <form class="add-article" action="/articles/<%= article.id %>" method="POST">
+        <div class="add-elem-div">
+            <input class="title-article" type="text" name="title" value="<%= article.title%>">
+        </div>
+        <div class="add-elem-div">
+            <input type="text" name="author" value="<%= article.author%>">
+        </div>
+        <div class="add-elem-div">
+            <textarea name="description" rows="4" cols="100"><%= article.description %></textarea>
+        </div>
+        <div class="add-elem-div">
+            <input type="number" name="likes" value="<%= article.likes%>">
+        </div>
+        <div class="add-elem-div">
+            <input type="text" name="tags" value="<%= article.tags.join(', ')%>">
+        </div>
+        <div class="add-elem-div">
+            <input type="submit" value="Update Article">
+        </div>
+    </form>
+    
+<%- include('partials/footer') -%>  

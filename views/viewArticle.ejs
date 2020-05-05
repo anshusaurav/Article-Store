@@ -1,0 +1,60 @@
+<%- include('partials/header') -%>
+<div>
+    <div>
+        <h2><%= article.title%></h2>
+        <h4>By: <%= article.author%></h4>
+        <% console.log(article.description) %>
+        <% var arr = article.description.split(/\r?\n/)%>
+        <% arr.forEach(elem => {  %>
+            <p><%= elem %></p>
+        <%}); %>
+        <div class='like-grid'>
+            <a href='/articles/<%= article.id%>/like'><i class="far fa-thumbs-up"></i></a>
+            <span><%= `Likes: ${article.likes}`%></span>
+            <a href='/articles/<%= article.id %>/dislike'><i class="far fa-thumbs-down"></i></a>
+        </div>
+        <div class='tags-grid'>
+            <% article.tags.forEach(element => { %>
+                <div class="tag-elem-div">
+                    <% debugger; %>
+                    <p class="tag-elem"> <%= element%></p>
+                </div>
+            <% }); %>
+        </div>
+    </div>
+    <% if(article.comments.length) { %>
+        <h2>Comments</h2>
+        <div class='comments-list-grid'>
+        <% comments.forEach(elem => { %>
+            <div class='single-comment'>
+                <div class="comment-content-div">
+                    <p><%= elem.content%></p>
+                </div>
+                <div class="comment-author-div">
+                    <p><span class="by-span">By:</span> <%= elem.author%></p>
+                </div>
+            </div>
+            <% })%>
+        </div>
+        <% } else { %>
+         <h2>No comments</h2>
+        <% } %> 
+    <form action="/articles/<%= article.id %>/comments" method="POST">
+        <input type="text" name="content" placeholder="Add comment" />
+        <input type="text" name="author" placeholder="Author's name" />
+        <input type="hidden" name="articleId" value="<%= article.id %>" />
+        <input type="submit" value="Add Comment">
+    </form>
+</div>
+<div class="grid-col-3">
+
+        <a href='/articles'><i class="fas fa-backward"></i></a>
+
+
+        <a href='/articles/<%= article.id %>/delete'><i class="far fa-trash-alt"></i></a> 
+
+
+        <a href='/articles/<%= article.id %>/edit'><i class="far fa-edit"></i></a>
+
+</div>
+<%- include('partials/footer') -%>
