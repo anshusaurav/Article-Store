@@ -30,8 +30,8 @@
                 <div class="comment-content-div">
                 
                     <p>&#8220;<%= `${elem.content.trim()}`%>&#8221;</p>
-                    <a href="/articles/<%= article.id %>/comments/<%= elem.id %>/edit"><spam>Edit</spam></a>
-                    <a href="/articles/<%= article.id %>/comments/<%= elem.id %>/delete"><span>X</span></a>
+                    <a href="/articles/<%= article.id %>/comments/<%= elem.id %>/edit"><i class="far fa-edit"></i></a>
+                    <a href="/articles/<%= article.id %>/comments/<%= elem.id %>/delete"><i class="far fa-trash-alt"></i></a>
                 </div>
                 <div class="comment-author-div">
                     <p><span class="by-span">By:</span> <%= elem.author%></p>
