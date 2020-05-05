@@ -181,12 +181,12 @@ h4{
   max-width: 50%;
 }
 .comment-area{
-  width: 100%;
+  width: 75%;
   min-height: 72px;
   border-radius: 8px;
 }
 .comment-author-input{
-  height: 44px;
+  height: 32px;
   font-family: 'Muli', sans-serif;
   border-radius: 4px;
   font-size: 22px;
@@ -195,8 +195,12 @@ h4{
   padding: 4px 6px;
   margin-right: 1rem;
 }
+#comment-btn{
+  max-height: 34px;
+  padding: 6px 15px;
+}
 .comment-flex-col-2{
   margin-top: 1rem;
   display: flex;
-  align-items: baseline;
+  align-items: center;
 }

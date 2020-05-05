@@ -14,7 +14,6 @@ router.get('/', function(req, res, next) {
     });
 });
 
-
 //add article
 router.get('/new', function(req, res, next) {
     return res.render("addArticle");
@@ -34,6 +33,7 @@ router.post('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
     console.log('view');
     let id = req.params.id;
+    let tags={};
     Article.findById(id, (err, article) =>{
         Comment.find({articleId: id}, (err, comments) =>{
             if(err)
@@ -45,6 +45,7 @@ router.get('/:id', function(req, res, next) {
     
 });
 
+//Add Comment
 
 router.post('/:articleId/comments', (req, res, next) =>{
     var id = req.params.articleId;
@@ -59,6 +60,28 @@ router.post('/:articleId/comments', (req, res, next) =>{
     });
     console.log(req.body);
 });
+
+
+//Delete comment
+router.get('/:articleId/comments/:commentId/delete', (req, res, next) =>{
+    var articleId = req.params.articleId;
+    var commentId = req.params.commentId;
+    console.log('Here deleting comment');
+    console.log(commentId, articleId);
+    Comment.findByIdAndDelete(commentId, (err, comment) =>{
+        Article.findByIdAndUpdate(articleId, {$pull: { comments: { $in: [commentId] } } }, (err, article)=>{
+            if(err)
+                return next(err);
+            res.redirect(`/articles/${articleId}`);
+        });
+        
+    });
+});
+
+
+//Edit comment
+
+
 
 //edit article
 

@@ -29,6 +29,9 @@
             <div class='single-comment'>
                 <div class="comment-content-div">
                     <p>&#8220;<%= `${elem.content.trim()}`%>&#8221;</p>
+                    <a><spam>Edit</spam></a>
+                    <a href="/articles/<%= article.id %>/comments/<%= elem.id %>/delete"><span>X</span></a>
+
                 </div>
                 <div class="comment-author-div">
                     <p><span class="by-span">By:</span> <%= elem.author%></p>
@@ -37,14 +40,14 @@
             <% })%>
         </div>
         <% } else { %>
-         <h2>No comments, Be the first one to post.</h2>
+         <h2>No comments, be the first one to post.</h2>
         <% } %> 
     <form class="comment-form" action="/articles/<%= article.id %>/comments" method="POST">
         <textarea class="comment-area" name="content" placeholder="Add comment">
-            </textarea>
+        </textarea>
         <div class="comment-flex-col-2">
-            <input type="text" class="comment-author-input" name="author" placeholder="Author's name" />
-            <input type="submit" value="Add Comment">
+            <input type="text" class="comment-author-input" name="author" placeholder="Reader's name" />
+            <input id="comment-btn" type="submit" value="Add Comment">
         </div>
     </form>
 </div>
