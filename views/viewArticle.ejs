@@ -28,7 +28,7 @@
         <% comments.forEach(elem => { %>
             <div class='single-comment'>
                 <div class="comment-content-div">
-                    <p><%= elem.content%></p>
+                    <p>&#8220;<%= `${elem.content.trim()}`%>&#8221;</p>
                 </div>
                 <div class="comment-author-div">
                     <p><span class="by-span">By:</span> <%= elem.author%></p>
@@ -37,13 +37,15 @@
             <% })%>
         </div>
         <% } else { %>
-         <h2>No comments</h2>
+         <h2>No comments, Be the first one to post.</h2>
         <% } %> 
-    <form action="/articles/<%= article.id %>/comments" method="POST">
-        <input type="text" name="content" placeholder="Add comment" />
-        <input type="text" name="author" placeholder="Author's name" />
-        <input type="hidden" name="articleId" value="<%= article.id %>" />
-        <input type="submit" value="Add Comment">
+    <form class="comment-form" action="/articles/<%= article.id %>/comments" method="POST">
+        <textarea class="comment-area" name="content" placeholder="Add comment">
+            </textarea>
+        <div class="comment-flex-col-2">
+            <input type="text" class="comment-author-input" name="author" placeholder="Author's name" />
+            <input type="submit" value="Add Comment">
+        </div>
     </form>
 </div>
 <div class="grid-col-3">

@@ -153,6 +153,7 @@ h4{
 .comments-list-grid{
   display: grid;
   grid-gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 .single-comment{
   border-radius: 12px;
@@ -166,10 +167,36 @@ h4{
   color: #535353;
 }
 .by-span{
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 600;
   color: #333333;
 }
 .comment-author-div{
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 500;
   color: #454545;
+}
+.comment-form{
+  min-width: 50%;
+  max-width: 50%;
+}
+.comment-area{
+  width: 100%;
+  min-height: 72px;
+  border-radius: 8px;
+}
+.comment-author-input{
+  height: 44px;
+  font-family: 'Muli', sans-serif;
+  border-radius: 4px;
+  font-size: 22px;
+  border: none;
+  width: 160px;
+  padding: 4px 6px;
+  margin-right: 1rem;
+}
+.comment-flex-col-2{
+  margin-top: 1rem;
+  display: flex;
+  align-items: baseline;
 }

@@ -38,7 +38,7 @@ router.get('/:id', function(req, res, next) {
         Comment.find({articleId: id}, (err, comments) =>{
             if(err)
                 return next(err);
-            return res.render("viewArticle", {article, comments});  
+            return res.render("viewArticle", {article, comments, tags});  
         });
         
     });
