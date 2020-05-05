@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 //view article
 
 router.get('/:id', function(req, res, next) {
-    console.log('view');
+    // console.log('view');
     let id = req.params.id;
     let tags={};
     Article.findById(id, (err, article) =>{
@@ -40,9 +40,7 @@ router.get('/:id', function(req, res, next) {
                 return next(err);
             return res.render("viewArticle", {article, comments, tags});  
         });
-        
     });
-    
 });
 
 //Add Comment
@@ -66,20 +64,47 @@ router.post('/:articleId/comments', (req, res, next) =>{
 router.get('/:articleId/comments/:commentId/delete', (req, res, next) =>{
     var articleId = req.params.articleId;
     var commentId = req.params.commentId;
-    console.log('Here deleting comment');
-    console.log(commentId, articleId);
+    
     Comment.findByIdAndDelete(commentId, (err, comment) =>{
-        Article.findByIdAndUpdate(articleId, {$pull: { comments: { $in: [commentId] } } }, (err, article)=>{
+        // Article.findByIdAndUpdate(articleId, {$pull: { comments: { $in: [commentId] } } }, (err, article)=>{
             if(err)
                 return next(err);
             res.redirect(`/articles/${articleId}`);
+        // });
+    });
+});
+
+
+//Edit comment
+//Get comment
+router.get('/:articleId/comments/:commentId/edit', (req, res, next) =>{
+    let articleId = req.params.articleId;
+    let commentId = req.params.commentId;
+    Article.findById(articleId, (err, article) =>{
+        Comment.findById(commentId, (err, comment) =>{
+            if(err)
+                return next(err);
+            return res.render("editComment", {article, comment});  
         });
         
     });
 });
 
 
-//Edit comment
+//Post updated content
+router.post('/:articleId/comments/:commentId/edit', (req, res, next) =>{
+    let articleId = req.params.articleId;
+    let commentId = req.params.commentId;
+    console.log('Here updating comment');
+    console.log(commentId, articleId);
+    req.body.articleId = articleId;
+    Comment.findByIdAndUpdate(commentId, req.body, (err, comment) =>{
+        if(err)
+            return next(err);
+        res.redirect(`/articles/${articleId}`);
+    });
+
+});
 
 
 

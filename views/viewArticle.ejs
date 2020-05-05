@@ -28,10 +28,10 @@
         <% comments.forEach(elem => { %>
             <div class='single-comment'>
                 <div class="comment-content-div">
+                
                     <p>&#8220;<%= `${elem.content.trim()}`%>&#8221;</p>
-                    <a><spam>Edit</spam></a>
+                    <a href="/articles/<%= article.id %>/comments/<%= elem.id %>/edit"><spam>Edit</spam></a>
                     <a href="/articles/<%= article.id %>/comments/<%= elem.id %>/delete"><span>X</span></a>
-
                 </div>
                 <div class="comment-author-div">
                     <p><span class="by-span">By:</span> <%= elem.author%></p>
