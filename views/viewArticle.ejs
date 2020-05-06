@@ -17,7 +17,7 @@
             <% article.tags.forEach(element => { %>
                 <div class="tag-elem-div">
                     <% debugger; %>
-                    <p class="tag-elem"> <%= element%></p>
+                    <a href="/tags/<%= element %>"class="tag-elem"> <%= element%></a>
                 </div>
             <% }); %>
         </div>

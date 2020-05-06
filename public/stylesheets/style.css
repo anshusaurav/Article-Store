@@ -224,3 +224,8 @@ h4{
   border: 1px solid #1c1c1c;
   padding: 0.5rem;
 }
+
+.tag-elem-div > a{
+  color: white;
+  cursor: pointer;
+}

@@ -29,14 +29,11 @@ router.post('/', function(req, res, next) {
             Tag.findOne({tagname},(err,tag)=> {
                 if(err) return next(err);
                 if(!tag) {
-                    console.log("GOO1: ",data.id);
                     Tag.create({tagname,articles:data.id},(err,createdTag)=> {
                         if(err) return next(err);
                     })
                 }
                 else {
-                    
-                    console.log("GOO2: ",data.id);
                     Tag.findOneAndUpdate({tagname},{$push:{articles:data.id}},(err,updatedTag) => {
                         if(err) return next(err);
 
