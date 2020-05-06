@@ -8,7 +8,7 @@ var tagSchema = new Schema({
         type: String,
         required: true,
     },
-    articleId: [{
+    articles: [{
         type: Schema.Types.ObjectId,
         ref: "Article"
     }]

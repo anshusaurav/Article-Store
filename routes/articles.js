@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Article = require("../models/article");
 var Comment = require("../models/comment");
+var Tag = require("../models/tag")
 // var commentRouter = require("./comments");
 
 /* GET home page. */
@@ -21,9 +22,31 @@ router.get('/new', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
     req.body.tags = req.body.tags.split(', ');
+    let tagArr = req.body.tags;
+
     Article.create(req.body, (err, data) => {
+        tagArr.forEach(tagname =>{
+            Tag.findOne({tagname},(err,tag)=> {
+                if(err) return next(err);
+                if(!tag) {
+                    console.log("GOO1: ",data.id);
+                    Tag.create({tagname,articles:data.id},(err,createdTag)=> {
+                        if(err) return next(err);
+                    })
+                }
+                else {
+                    
+                    console.log("GOO2: ",data.id);
+                    Tag.findOneAndUpdate({tagname},{$push:{articles:data.id}},(err,updatedTag) => {
+                        if(err) return next(err);
+
+                    })
+                }
+            })
+        })
         if(err) return next(err);
         return res.redirect('/articles');
+    
     });
 });
 

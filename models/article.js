@@ -23,7 +23,8 @@ var articleSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Comment",
     }],
-    tags: [String],
+    tags: [String]
+    
 },{timestamps: true});
 
 var Article = mongoose.model("Article", articleSchema);
