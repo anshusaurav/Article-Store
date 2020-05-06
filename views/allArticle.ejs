@@ -4,12 +4,12 @@
 <div class='article-list-grid'>
 <% articles.forEach(elem => { %>
     <div class='single'>
-        <a href="articles/<%= elem.id %>/"><h2>Title: <%= elem.title%></h2></a>
+        <a href="/articles/<%= elem.id %>/"><h2><%= elem.title%></h2></a>
         <h4>By: <%= elem.author%></h4>
         <div class='tags-grid'>
             <% elem.tags.forEach(element => { %>
                 <div class="tag-elem-div">
-                    <p class="tag-elem"> <%= element%></p>
+                    <a href="/tags/<%= element %>"class="tag-elem"> <%= element%></a>
                 </div>
             <% }); %>
         </div>

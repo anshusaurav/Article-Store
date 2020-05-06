@@ -16,7 +16,6 @@
         <div class='tags-grid'>
             <% article.tags.forEach(element => { %>
                 <div class="tag-elem-div">
-                    <% debugger; %>
                     <a href="/tags/<%= element %>"class="tag-elem"> <%= element%></a>
                 </div>
             <% }); %>
@@ -62,5 +61,5 @@
         <a href='/articles/<%= article.id %>/edit'><i class="far fa-edit"></i></a>
 
 </div>
-
+<script src="/javascripts/script.js" defer></script>
 <%- include('partials/footer') -%>

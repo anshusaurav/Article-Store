@@ -2,7 +2,7 @@ body {
   font-family: 'Muli', sans-serif;
   font-size: 14px;
   color: white;
-  background: #5DD39E;
+  background: #1c1c1c
 }
 .container{
   width: 1200px;
@@ -26,6 +26,12 @@ a {
   border: 2px ridge rgb(17, 16, 16);
   padding: 1rem;
   border-radius: 16px;
+  background: #161616;
+}
+.single:hover{
+  border: 2px ridge rgb(133, 125, 125);
+  background: #222626;
+  transition: all 0.25s ease-in;
 }
 .like-grid{
   width: 150px;
@@ -50,7 +56,7 @@ a {
   align-items: center;
   border-radius: 16px;
   border: 1px solid gray;
-  background: rgb(26, 58, 44);
+  background: rgb(100, 100, 100);
   
 }
 .grid-col-3{
@@ -67,7 +73,13 @@ a {
   align-items: center;
   border-radius: 6px;
   padding: 12px;
-  border: 1px solid #1c1c1c;;
+  border: 2px solid #060606
+}
+
+.grid-col-3 > a:hover{
+  border: 2px solid #9c9b9b;
+  transition: all 0.25s ease-in-out;
+  color: rgb(200, 200, 200);
 }
 .article-list-grid{
   display: grid;
@@ -86,7 +98,7 @@ a {
   width: 100%;
   border-radius: 2px;
   border: none;
-  
+  padding: 4px;
 }
 textarea{
   font-family: 'Muli', sans-serif;
@@ -107,6 +119,12 @@ textarea{
   line-height: 28px;
   font-size: 20px;
   padding: 4px;
+}
+.likes-input{
+  outline: none;
+  border: none;
+  line-height: 20px;
+  padding: 2px;
 }
 .button, input[type=submit]{
   font-family: 'Muli', sans-serif;
@@ -159,8 +177,9 @@ h4{
   border-radius: 12px;
   min-width: 50%;
   max-width: 50%;
-  border: 1px solid #1c1c1c;
+  border: 1px solid #595959;
   padding: 0.25rem 0.5rem;
+  background: #111;
 }
 .comment-content-div{
   font-size: 16px;
@@ -229,3 +248,4 @@ h4{
   color: white;
   cursor: pointer;
 }
+
