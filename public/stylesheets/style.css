@@ -16,6 +16,15 @@ a {
   text-decoration: none;
   color: rgb(82, 76, 76);
 }
+.welcome-p{
+  font-size: 22px;
+  font-weight: 600;
+}
+.nav-link:hover{
+  transform: scale(1.2);
+  color: rgb(181, 181, 181);
+  transition: all 0.2s ease-in-out;
+}
 .grid-col-2{
   /* width: 40%; */
   display: grid;
@@ -33,12 +42,21 @@ a {
   background: #222626;
   transition: all 0.25s ease-in;
 }
+.single-heading{
+  color: #d1d1d1;
+}
 .like-grid{
   width: 150px;
   display: grid;
   grid-template-columns: 50px 100px 50px;
 }
-
+.fas {
+  color: #d4d4d4;
+}
+.fas:hover {
+  color: #f4f4f4;
+  transition: all 0.2s ease-in-out;
+}
 .like-grid > *{
   justify-self: center;
 }
@@ -55,10 +73,17 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  border: 1px solid gray;
+  border: 2px solid #b0b0b0;
   background: rgb(100, 100, 100);
   
 }
+.tag-elem-div:hover{
+  color: #dddddd;
+  background-color: #111111;
+  cursor: pointer;
+}
+
+
 .grid-col-3{
   display: grid;
   grid-template-columns: repeat(auto-fill, 40px);
@@ -115,6 +140,9 @@ textarea{
   font-size: 24px;
   padding: 4px;
 }
+.article-page-title, .article-page-author {
+  text-align: center;
+}
 .tags-article{
   line-height: 28px;
   font-size: 20px;
@@ -133,7 +161,7 @@ textarea{
   margin-right: 5px;
   height: 50px;
   min-width: 100px;
-  background: #348AA7;
+  background: #010101;
   border: none;
   outline: none;
   color: white;
@@ -141,17 +169,17 @@ textarea{
   font-weight: 600;
   font-size: 18px;
   border-radius: 3px;
-  box-shadow: 0 5px 0px #348aa7;
-  border-bottom: 2px solid #30809b;
+  box-shadow: 0 5px 0px #353131;
+  border-bottom: 2px solid #000000;
   cursor: pointer;
   box-sizing: border-box;
   text-align: center;
 }
 .button:hover, input[type=submit]:hover {
-  background: #2e7a94;
-  box-shadow: 0 4px 1px #2e7a94;
-  border-bottom: 2px solid #2a7088;
-  transition: all 0.1s ease-in;
+  background: #353131;
+  box-shadow: 0 4px 1px #010101;
+  border-bottom: 2px solid #000000;
+  transition: all 0.2s ease-in;
 }
 .button:active, input[type=submit]:active {
   transform: translateY(4px);
@@ -165,7 +193,7 @@ h4{
 
 .like-grid > span{
   font-weight: 700;
-  color: rgb(65, 62, 62);
+  color: rgb(206, 206, 206);
 }
 
 .comments-list-grid{
@@ -248,4 +276,3 @@ h4{
   color: white;
   cursor: pointer;
 }
-

@@ -1,17 +1,17 @@
 <%- include('partials/header') -%>
 <div>
     <div>
-        <h2><%= article.title%></h2>
-        <h4>By: <%= article.author%></h4>
+        <h2 class='article-page-title'><%= article.title%></h2>
+        <h4 class='article-page-author'>By: <%= article.author%></h4>
         <% console.log(article.description) %>
         <% var arr = article.description.split(/\r?\n/)%>
         <% arr.forEach(elem => {  %>
             <p><%= elem %></p>
         <%}); %>
         <div class='like-grid'>
-            <a href='/articles/<%= article.id%>/like'><i class="far fa-thumbs-up"></i></a>
-            <span><%= `Likes: ${article.likes}`%></span>
-            <a href='/articles/<%= article.id %>/dislike'><i class="far fa-thumbs-down"></i></a>
+            <a href='/articles/<%= article.id%>/like'><i class="fas fa-thumbs-up"></i></a>
+            <span class='likes-count'><%= `Likes: ${article.likes}`%></span>
+            <a href='/articles/<%= article.id %>/dislike'><i class="fas fa-thumbs-down"></i></a>
         </div>
         <div class='tags-grid'>
             <% article.tags.forEach(element => { %>
@@ -52,13 +52,13 @@
 </div>
 <div class="grid-col-3">
 
-        <a href='/articles'><i class="fas fa-backward"></i></a>
+        <a href='/articles'><i title="Back" class="fas fa-backward"></i></a>
 
 
-        <a href='/articles/<%= article.id %>/delete'><i class="far fa-trash-alt"></i></a> 
+        <a href='/articles/<%= article.id %>/delete'><i title="Delete" class="far fa-trash-alt"></i></a> 
 
 
-        <a href='/articles/<%= article.id %>/edit'><i class="far fa-edit"></i></a>
+        <a href='/articles/<%= article.id %>/edit'><i title="Edit" class="far fa-edit"></i></a>
 
 </div>
 <script src="/javascripts/script.js" defer></script>
