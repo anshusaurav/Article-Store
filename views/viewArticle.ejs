@@ -6,7 +6,7 @@
         <% console.log(article.description) %>
         <% var arr = article.description.split(/\r?\n/)%>
         <% arr.forEach(elem => {  %>
-            <p><%= elem %></p>
+            <p class='article-p'><%= elem %></p>
         <%}); %>
         <div class='like-grid'>
             <a href='/articles/<%= article.id%>/like'><i class="fas fa-thumbs-up"></i></a>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <% if(article.comments.length) { %>
-        <h2>Comments</h2>
+        <h2>Responses<%= `(${comments.length})` %></h2>
         <div class='comments-list-grid'>
         <% comments.forEach(elem => { %>
             <div class='single-comment'>
@@ -39,14 +39,13 @@
             <% })%>
         </div>
         <% } else { %>
-         <h2>No comments, be the first one to post.</h2>
+         <h2>No response, be the first one to post.</h2>
         <% } %> 
     <form class="comment-form" action="/articles/<%= article.id %>/comments" method="POST">
-        <textarea class="comment-area" name="content" placeholder="Add comment">
-        </textarea>
+        <textarea class="comment-area" name="content" placeholder="Add response"></textarea>
         <div class="comment-flex-col-2">
             <input type="text" class="comment-author-input" name="author" placeholder="Reader's name" />
-            <input id="comment-btn" type="submit" value="Add Comment">
+            <input id="comment-btn" type="submit" value="Add Response">
         </div>
     </form>
 </div>

@@ -126,8 +126,6 @@ router.post('/:articleId/comments/:commentId/edit', (req, res, next) =>{
 
 });
 
-
-
 //edit article
 
 router.get('/:id/edit', function(req, res, next) {

@@ -140,6 +140,9 @@ textarea{
   font-size: 24px;
   padding: 4px;
 }
+.article-p{
+  font-size: 16px;
+}
 .article-page-title, .article-page-author {
   text-align: center;
 }
